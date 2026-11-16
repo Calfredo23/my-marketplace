@@ -2,8 +2,8 @@
 
 Framework Version: 1.22.1
 Current Execution Mode: QUALITY
-Project Status: FEATURE_DEVELOPMENT
-Lifecycle Stage: 6 — IMPLEMENTATION
+Project Status: SUBMISSION_READY
+Lifecycle Stage: 10 — DELIVERY AND SUBMISSION
 Owner: Cedrick Alfredo Catimbang (Calfredo)
 
 ## What this is
@@ -41,9 +41,10 @@ responsive category wrapping. Typecheck, lint, build, 16 unit tests, and all 6 P
 tests pass. axe passes at 390 and 1440; no horizontal scroll at 360, 768, 1440.
 
 Seller email is implemented server-side through EmailJS in `app/api/notify-seller/route.ts`.
-The message saves first; email is best-effort. Until the four EmailJS env names exist, the
-route returns `not_configured` and the UI confirms the message was saved. The route only
-emails the seller address stored on the listing.
+The message saves first; email is best-effort. The route only emails the seller address
+stored on the listing. Local EmailJS test returned `{"sent":true}`; the live Vercel route
+also returned `{"sent":true}` after the env vars were added. Live email delivery is
+confirmed.
 
 Submission screenshots were not overwritten. Temporary review captures are in `.review/`
 (ignored). The public deployment is `https://my-marketplace-calfredo.vercel.app`; the

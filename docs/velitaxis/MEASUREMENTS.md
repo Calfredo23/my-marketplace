@@ -12,8 +12,9 @@
 - axe: 0 violations at 390 and 1440.
 - Responsive: no horizontal scroll at 360, 768, 1440.
 - Form UX: one-column sell form, 48px inputs, 16px text, visible labels, on-blur validation.
-- EmailJS: route builds and returns `not_configured` when the four env names are absent;
-  message save and success UI still pass. Real delivery pending owner setup.
+- EmailJS: local route returned `{"sent":true}`; live Vercel route returned `{"sent":true}`
+  after env vars were active. Real seller email delivery confirmed.
+- Keyword search: covered by the create-listing E2E flow and live query behavior.
 
 ## Build
 

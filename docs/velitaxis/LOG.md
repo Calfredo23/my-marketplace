@@ -79,3 +79,13 @@
   Added a Playwright assertion for the email status line.
 - Verified with EmailJS unset: 16 unit and 6 Playwright pass; message still saves and the UI
   says notifications are not configured. Next: owner EmailJS setup + live email test.
+
+## 2026-11-16 — EmailJS verified locally and live
+
+- Local route test returned `{"sent":true}`; the seller email arrived.
+- The first live UI test still returned `not_configured` because Vercel had not picked up the
+  env vars. After the owner confirmed the env vars, the live route returned `{"sent":true}`.
+- Removed both temporary email-test listings. Database is back to 6 demo listings and 0
+  messages.
+- All Test 3 core features and both bonuses (keyword search, real seller email) are done.
+  Next: final screenshots and submission.
