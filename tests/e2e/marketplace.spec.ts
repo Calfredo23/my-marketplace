@@ -49,7 +49,7 @@ test("the opening page has no console errors", async ({ page }) => {
 test("layouts fit 360, 768 and 1440 without horizontal scroll", async ({
   page,
 }) => {
-  for (const width of [360, 768, 1440]) {
+  for (const width of [320, 360, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
     const report = await page.evaluate(() => ({

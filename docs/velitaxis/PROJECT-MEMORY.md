@@ -1,7 +1,7 @@
 # PROJECT MEMORY — The Market
 
 Framework Version: 1.22.1
-Current Execution Mode: BALANCED
+Current Execution Mode: QUALITY
 Project Status: FEATURE_DEVELOPMENT
 Lifecycle Stage: 6 — IMPLEMENTATION
 Owner: Cedrick Alfredo Catimbang (Calfredo)
@@ -27,25 +27,22 @@ Next.js 16.4.6 (App Router), React 19.3, TypeScript strict, Tailwind 4,
 
 ## Design direction
 
-Clean Facebook Marketplace feel, not a 2008 reskin. White surfaces, soft gray page,
-one strong blue accent, rounded cards, large photos, and a compact seller panel on the
-detail page. Full contract in `docs/velitaxis/SPECS/DESIGN_PLAN.md`.
+Airbnb-inspired marketplace system, not a Facebook clone. White canvas, warm soft-gray
+footer, deep coral accent for primary actions and the mark, borderless 4:3 photo cards,
+one-family system sans, 14px card radius, 20px detail/form radius, and a sticky seller
+panel. Full contract in `docs/velitaxis/SPECS/DESIGN_PLAN.md`.
 
 ## Current state
 
-The app is implemented and verified locally against the live Supabase project. Typecheck,
-lint, build, 16 unit tests, and 6 Playwright tests pass. The tests cover create listing with
-photo, home browse/search/category tabs, detail page, real Message Seller insert, axe at
-390/1440, responsive widths, console errors, and screenshots. The public repo is `https://github.com/Calfredo23/my-marketplace`; CI run `43833011349`
-passed. The public Vercel deployment is the remaining step. Screenshots are in
-`submission/screenshots/` (PNGs ignored by git).
+The frontend has been refactored on the Airbnb-inspired system: borderless photo cards,
+coral primary actions, one-family type, category tabs with icons, a one-column sell form,
+on-blur field validation, detail facts, sticky seller panel, reduced-motion support, and
+responsive category wrapping. Typecheck, lint, build, 16 unit tests, and all 6 Playwright
+tests pass. axe passes at 390 and 1440; no horizontal scroll at 360, 768, 1440.
 
-Supabase project `Marketplace` (`nzmhpfiyhjmxqntrbosq`, Singapore, $0) has 6 demo listings,
-0 messages, and a public `listing-images` bucket. Security advisors show no findings. The old
-`Calfredo23's Project` was paused to free a free-tier slot.
-
-Next: create the public repo, push, import to Vercel, add the Supabase env names, deploy,
-verify the live flow, then submit.
+Submission screenshots were not overwritten. Temporary review captures are in `.review/`
+(ignored). The public deployment is `https://my-marketplace-calfredo.vercel.app`; the
+refactor still needs a live verification and final submission screenshots.
 
 ## Risks
 

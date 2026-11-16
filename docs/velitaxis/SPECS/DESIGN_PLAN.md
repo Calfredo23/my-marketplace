@@ -2,43 +2,46 @@
 
 ## Direction
 
-Clean Facebook Marketplace, not a Facebook clone and not the 2008 wall. Familiar structure:
-search first, category chips, photo-led cards, a compact seller panel. The visual language
-is modern: white surfaces, soft gray page, one strong blue accent, generous radii, and
-system sans type.
+Airbnb-inspired marketplace. The listings do the work: white canvas, large 4:3 photography,
+borderless cards, tight display type, and one coral action color. The interface stays quiet
+so the photos and prices read first. This is a marketplace, not a social feed and not a
+Facebook clone.
 
-## Tokens
+## System
 
-- Brand: `#1466e8`, dark `#0e51bb`, tint `#eef4ff`.
-- Ink: `#0f1b2d`; body `#334155`; muted `#5b6b82`.
-- Page: `#f4f6f9`; surface: `#ffffff`; line: `#e3e8ef`.
-- Radii: controls 10px, cards 14px, large media 18px.
-- Type: system sans; display weight 800, tight tracking; body 15px/1.5.
-- Spacing: 4/8/12/18/24/28; container max 1180px.
+- One system: `airbnb` from the looksmaxxing library.
+- Palette: white canvas, `#222` ink, `#6a6a6a` muted, `#ddd` hairline, deep coral
+  `#e31c5f` for primary actions and the mark.
+- Type: one system sans family. Display 56/1.05, section 28, card title 16/600, body 16/1.45,
+  meta 13. Tight negative tracking only on display.
+- Radii: 8px inputs/buttons, 14px cards, 20px hero/form/seller panels, pill search.
+- Elevation: cards are flat. Seller/form panels use Airbnb's stacked hairline+blur shadow.
+- Motion: 150–200ms, transform/opacity, reduced-motion honored.
 
 ## Layout
 
-- Sticky white header: brand, search, Sell something. Search drops below on mobile.
-- Home: short intro, category chips, result count, grid/list toggle.
-- Cards: 4:3 photo, price, two-line title, category chip, date. 3/2/1 columns.
-- List view: 230px photo left, details centered.
-- Detail: large photo left, title/price/description below; seller card and message form in a
-  sticky right rail. One column on mobile.
-- Sell: 780px form, photo dropzone first, then fields, then publish actions.
+- Sticky white header: coral tag mark, pill search, coral Sell button.
+- Home: 56px headline, short copy, icon category tabs with an ink underline, result count,
+  view toggle, adaptive 4:3 photo grid.
+- Cards: image 14px radius; price, two-line title, muted category/date below. No outer card
+  border or shadow.
+- List view: 240px image left, details centered, hairline separators.
+- Detail: large 20px image left; title/price/description below. Right rail: seller card,
+  category/listed facts, coral Message Seller, safety note.
+- Sell: 720px one-column form, 20px panel, photo dropzone first, 48px inputs, coral publish.
 
-## Components
+## Interaction
 
-- Buttons: primary blue, secondary white with line.
-- Inputs: 44px, 10px radius, clear focus ring, red border on invalid.
-- Chips: category pills; active is ink with white text.
-- Seller: initials avatar, seller label, email, Message Seller button.
-- Success: green inline confirmation after a message.
+- Search button is a coral circle; Enter and click both submit.
+- Category tabs wrap on mobile so all categories stay visible.
+- Fields validate on blur, clear on input, and show a specific message.
+- Buttons: hover darkens, active scales, focus is a 2px ink ring.
+- No meaning by color alone; every error has text.
 
 ## Quality gates
 
+- Contrast >= 4.5:1 for text, >= 3:1 for large text and UI.
 - No horizontal scroll at 360, 768, 1440.
-- Axe: zero violations.
-- Visible focus states.
-- Every form field has a label and an inline error.
-- No login, so avoid implying private data. Seller email is shown because the brief asks for
-  contact details.
+- Axe zero at 390 and 1440.
+- Touch targets >= 44px for primary controls.
+- All images have alt text; the seller email is a mailto link.

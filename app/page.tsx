@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { CategoryTabs } from "@/components/category-tabs";
 import { ListingsView } from "@/components/listings-view";
 import { SetupNotice } from "@/components/setup-notice";
@@ -28,23 +27,17 @@ export default async function HomePage({ searchParams }: HomeProps) {
 
   const intro = (
     <section className="page-intro">
-      <div>
-        <p className="eyebrow">Marketplace</p>
-        <h1>
-          {query
-            ? `Results for “${query}”`
-            : activeCategory
-              ? activeCategory
-              : "Find something good."}
-        </h1>
-        <p className="page-copy">
-          Buy from people nearby, sell what you no longer need, and keep good
-          things moving.
-        </p>
-      </div>
-      <Link href="/sell" className="button button-primary intro-action">
-        Start selling
-      </Link>
+      <h1>
+        {query
+          ? `Results for “${query}”`
+          : activeCategory
+            ? activeCategory
+            : "Find something good."}
+      </h1>
+      <p className="page-copy">
+        Buy from people nearby, sell what you no longer need, and keep good
+        things moving.
+      </p>
     </section>
   );
 

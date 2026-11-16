@@ -119,3 +119,59 @@ export function MailIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function ElectronicsIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 14a8 8 0 0 1 16 0" />
+      <rect x="2.5" y="13.5" width="4" height="7" rx="1.5" />
+      <rect x="17.5" y="13.5" width="4" height="7" rx="1.5" />
+    </svg>
+  );
+}
+
+export function FurnitureIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
+      <path d="M3 11h18v6H3z" />
+      <path d="M5 17v3M19 17v3" />
+    </svg>
+  );
+}
+
+export function ClothingIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M8 4 4 7l2 3 2-1v11h8V9l2 1 2-3-4-3-2 2H8Z" />
+    </svg>
+  );
+}
+
+export function BooksIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 5h6a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4Z" />
+      <path d="M20 5h-6a3 3 0 0 0-3 3v11a3 3 0 0 1 3-3h6Z" />
+    </svg>
+  );
+}
+
+export function SportsIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="6" cy="17" r="3" />
+      <circle cx="18" cy="17" r="3" />
+      <path d="m6 17 4-9h4l4 9M10 8h4" />
+    </svg>
+  );
+}
+
+export function OtherIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m4 8 8-4 8 4-8 4-8-4Z" />
+      <path d="M4 8v8l8 4 8-4V8M12 12v8" />
+    </svg>
+  );
+}

@@ -26,8 +26,8 @@ export function SiteHeader({ query = "" }: { query?: string }) {
             aria-label="Search listings"
             className="search-input"
           />
-          <button type="submit" className="search-submit">
-            Search
+          <button type="submit" className="search-submit" aria-label="Search">
+            <SearchIcon width={16} height={16} />
           </button>
         </form>
 

@@ -1,5 +1,33 @@
 import Link from "next/link";
+import {
+  BooksIcon,
+  ClothingIcon,
+  ElectronicsIcon,
+  FurnitureIcon,
+  GridIcon,
+  OtherIcon,
+  SportsIcon,
+} from "@/components/icons";
 import { browseHref, CATEGORIES, type Category } from "@/lib/listings";
+
+function CategoryIcon({ category }: { category: Category | null }) {
+  switch (category) {
+    case "Electronics":
+      return <ElectronicsIcon className="category-icon" />;
+    case "Furniture":
+      return <FurnitureIcon className="category-icon" />;
+    case "Clothing":
+      return <ClothingIcon className="category-icon" />;
+    case "Books":
+      return <BooksIcon className="category-icon" />;
+    case "Sports":
+      return <SportsIcon className="category-icon" />;
+    case "Other":
+      return <OtherIcon className="category-icon" />;
+    default:
+      return <GridIcon className="category-icon" />;
+  }
+}
 
 export function CategoryTabs({
   active,
@@ -15,6 +43,7 @@ export function CategoryTabs({
         className={active ? "category-tab" : "category-tab category-tab-active"}
         aria-current={active ? undefined : "page"}
       >
+        <CategoryIcon category={null} />
         All
       </Link>
       {CATEGORIES.map((category) => {
@@ -28,6 +57,7 @@ export function CategoryTabs({
             }
             aria-current={isActive ? "page" : undefined}
           >
+            <CategoryIcon category={category} />
             {category}
           </Link>
         );

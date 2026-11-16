@@ -2,7 +2,7 @@
 
 A small Facebook Marketplace-style app built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Supabase.
 
-Live: https://the-market-calfredo.vercel.app
+Live: https://my-marketplace-calfredo.vercel.app
 
 [Source](https://github.com/Calfredo23/my-marketplace)
 

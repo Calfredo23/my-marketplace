@@ -15,15 +15,15 @@ satisfies Test 3 on a public Vercel URL.
 
 ## Status
 
-Local implementation, Supabase project, real flow, tests, screenshots, public repo, and CI
-are complete. The Vercel deployment remains.
+The Airbnb-inspired frontend refactor is complete and fully tested locally. The public
+deployment is `https://my-marketplace-calfredo.vercel.app`. Submission screenshots were not
+replaced.
 
 ## Next action
 
-1. Import `Calfredo23/my-marketplace` to Vercel and add the Supabase URL/publishable key
-   env names.
-2. Deploy, verify the live create → browse → detail → message flow, update the live URL,
-   submit.
+1. Verify the live create → browse → detail → message flow and canonical URL.
+2. Capture the final submission screenshots after the owner approves the look.
+3. Submit at `apply.capm.us`.
 
 ## Acceptance criteria
 

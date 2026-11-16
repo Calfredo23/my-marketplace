@@ -48,6 +48,9 @@ next-env.d.ts
 # reviewer notes stay local
 /submission/*.md
 
+# temporary design review captures
+/.review/
+
 # VELLITAXIS secret baseline
 docs/velitaxis/SECRETS.local.md
 SECRETS.local.md

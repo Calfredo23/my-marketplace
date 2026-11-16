@@ -46,6 +46,11 @@ export function SellForm() {
     setFormError(null);
   }
 
+  function validateField(key: keyof ListingErrors) {
+    const nextErrors = listingErrors(fields);
+    setErrors((current) => ({ ...current, [key]: nextErrors[key] }));
+  }
+
   function clearImage() {
     if (previewUrl) {
       URL.revokeObjectURL(previewUrl);
@@ -210,10 +215,12 @@ export function SellForm() {
           <label htmlFor="listing-title">Title</label>
           <input
             id="listing-title"
+            name="title"
             data-testid="listing-title-input"
             className="input"
             value={fields.title}
             onChange={(event) => updateField("title", event.target.value)}
+            onBlur={() => validateField("title")}
             maxLength={80}
             placeholder="What are you selling?"
             aria-invalid={Boolean(errors.title)}
@@ -221,64 +228,73 @@ export function SellForm() {
           {errors.title ? <p className="field-error">{errors.title}</p> : null}
         </div>
 
-        <div className="form-row">
-          <div className="field">
-            <label htmlFor="listing-category">Category</label>
-            <select
-              id="listing-category"
-              data-testid="listing-category"
-              className="input"
-              value={fields.category}
-              onChange={(event) => updateField("category", event.target.value)}
-              aria-invalid={Boolean(errors.category)}
-            >
-              <option value="">Choose one</option>
-              {CATEGORIES.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            {errors.category ? (
-              <p className="field-error">{errors.category}</p>
-            ) : null}
-          </div>
+        <div className="field">
+          <label htmlFor="listing-category">Category</label>
+          <select
+            id="listing-category"
+            name="category"
+            data-testid="listing-category"
+            className="input"
+            value={fields.category}
+            onChange={(event) => updateField("category", event.target.value)}
+            onBlur={() => validateField("category")}
+            aria-invalid={Boolean(errors.category)}
+          >
+            <option value="">Choose one</option>
+            {CATEGORIES.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          {errors.category ? (
+            <p className="field-error">{errors.category}</p>
+          ) : null}
+        </div>
 
-          <div className="field">
-            <label htmlFor="listing-price">Price</label>
-            <div className="input-prefix-wrap">
-              <span className="input-prefix">$</span>
-              <input
-                id="listing-price"
-                data-testid="listing-price-input"
-                className="input input-with-prefix"
-                type="number"
-                inputMode="decimal"
-                min="0"
-                max="1000000"
-                step="0.01"
-                value={fields.price}
-                onChange={(event) => updateField("price", event.target.value)}
-                placeholder="0"
-                aria-invalid={Boolean(errors.price)}
-              />
-            </div>
-            {errors.price ? <p className="field-error">{errors.price}</p> : null}
+        <div className="field">
+          <label htmlFor="listing-price">Price</label>
+          <div className="input-prefix-wrap">
+            <span className="input-prefix">$</span>
+            <input
+              id="listing-price"
+              name="price"
+              data-testid="listing-price-input"
+              className="input input-with-prefix"
+              type="number"
+              inputMode="decimal"
+              min="0"
+              max="1000000"
+              step="0.01"
+              value={fields.price}
+              onChange={(event) => updateField("price", event.target.value)}
+              onBlur={() => validateField("price")}
+              placeholder="0"
+              aria-invalid={Boolean(errors.price)}
+            />
           </div>
+          <p className="field-help">Use 0 for free items.</p>
+          {errors.price ? <p className="field-error">{errors.price}</p> : null}
         </div>
 
         <div className="field">
           <label htmlFor="listing-email">Your email</label>
           <input
             id="listing-email"
+            name="email"
             data-testid="listing-email"
             className="input"
             type="email"
+            autoComplete="email"
             value={fields.email}
             onChange={(event) => updateField("email", event.target.value)}
+            onBlur={() => validateField("email")}
             placeholder="you@example.com"
             aria-invalid={Boolean(errors.email)}
           />
+          <p className="field-help">
+            Shown on the listing so buyers can reach you.
+          </p>
           {errors.email ? <p className="field-error">{errors.email}</p> : null}
         </div>
 
@@ -286,11 +302,13 @@ export function SellForm() {
           <label htmlFor="listing-description">Description</label>
           <textarea
             id="listing-description"
+            name="description"
             data-testid="listing-description"
             className="input textarea"
             rows={6}
             value={fields.description}
             onChange={(event) => updateField("description", event.target.value)}
+            onBlur={() => validateField("description")}
             maxLength={2000}
             placeholder="Condition, size, pickup details, anything a buyer should know."
             aria-invalid={Boolean(errors.description)}

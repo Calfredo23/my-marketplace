@@ -1,7 +1,7 @@
 import { mkdir } from "node:fs/promises";
 import { expect, test } from "@playwright/test";
 
-const OUT = "submission/screenshots";
+const OUT = process.env.SCREENSHOT_OUT ?? "submission/screenshots";
 
 test("capture marketplace screenshots", async ({ browser }) => {
   test.setTimeout(90_000);

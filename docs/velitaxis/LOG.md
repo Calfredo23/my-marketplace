@@ -40,3 +40,21 @@
 - Initialized git, ran the staged secret sweep (clean), committed, and created
   `https://github.com/Calfredo23/my-marketplace`.
 - CI run `43833011349` passed both jobs. Next: Vercel import, env names, live verification.
+
+## 2026-11-16 — Airbnb-inspired frontend refactor
+
+- Switched the frontend pass to QUALITY mode and applied the looksmaxxing workflow with the
+  Airbnb system: white canvas, coral action color, ink text, warm footer, one-family sans.
+- Refactored the header/search, icon category tabs, borderless photo cards, 4-column
+  adaptive grid, detail facts, sticky seller panel, one-column sell form, on-blur validation,
+  input sizing, focus states, and reduced-motion behavior.
+- Kept submission screenshots untouched. Captured temporary review shots in `.review/`.
+- Verified: 16 unit, 6 Playwright, axe at 390/1440, no horizontal scroll at 360/768/1440.
+- Next: Vercel URL, live verification, final screenshots, submit.
+
+## 2026-11-16 — Live URL and canonical
+
+- Found the Vercel production alias `https://my-marketplace-calfredo.vercel.app` from the
+  GitHub deployment status. The old fallback `the-market-calfredo.vercel.app` returns 404.
+- Updated the metadata fallback, README, and project state. Next: push, verify live, then
+  final screenshots after approval.

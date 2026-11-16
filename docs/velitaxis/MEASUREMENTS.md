@@ -5,9 +5,11 @@
 - Vitest: 16 passing (listing validation, message validation, parsing, formatting, errors).
 - Playwright: 6 passing with Supabase (shell, axe at 390/1440, console, responsive,
   create listing, detail, message, screenshots).
-- Manual visual review: home, detail, sell, and mobile screenshots.
+- Visual review: Airbnb-inspired home/detail/sell at 1440 and 390. Temporary captures in
+  `.review/`; submission screenshots intentionally not replaced yet.
 - axe: 0 violations at 390 and 1440.
 - Responsive: no horizontal scroll at 360, 768, 1440.
+- Form UX: one-column sell form, 48px inputs, 16px text, visible labels, on-blur validation.
 
 ## Build
 

@@ -71,13 +71,9 @@ export default async function ListingPage({ params }: ListingPageProps) {
               />
             </div>
             <div className="detail-copy">
-              <span className="category-chip">{listing.category}</span>
               <h1>{listing.title}</h1>
               <p className="detail-price">{formatPrice(listing.price)}</p>
               <p className="detail-description">{listing.description}</p>
-              <p className="detail-date">
-                Listed {formatListedAt(listing.createdAt)}
-              </p>
             </div>
           </div>
 
@@ -91,6 +87,16 @@ export default async function ListingPage({ params }: ListingPageProps) {
                 <a href={`mailto:${listing.email}`} className="seller-email">
                   {listing.email}
                 </a>
+              </div>
+            </div>
+            <div className="detail-facts">
+              <div className="detail-fact">
+                <span>Category</span>
+                <strong>{listing.category}</strong>
+              </div>
+              <div className="detail-fact">
+                <span>Listed</span>
+                <strong>{formatListedAt(listing.createdAt)}</strong>
               </div>
             </div>
             <MessageSeller listingId={listing.id} />

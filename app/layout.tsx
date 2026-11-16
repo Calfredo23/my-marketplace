@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://the-market-calfredo.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-marketplace-calfredo.vercel.app";
 const title = "The Market — buy, sell, pass it on";
 const description =
   "A small marketplace built with Next.js, React, and Supabase. List something, browse by category, and message the seller.";
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1466e8",
+  themeColor: "#ff385c",
   colorScheme: "light",
 };
 

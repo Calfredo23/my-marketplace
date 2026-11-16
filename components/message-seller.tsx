@@ -118,8 +118,10 @@ export function MessageSeller({ listingId }: { listingId: string }) {
         <label htmlFor="buyer-name">Your name</label>
         <input
           id="buyer-name"
+          name="name"
           data-testid="buyer-name"
           className="input"
+          autoComplete="name"
           value={fields.name}
           onChange={(event) => updateField("name", event.target.value)}
           maxLength={80}
@@ -133,9 +135,11 @@ export function MessageSeller({ listingId }: { listingId: string }) {
         <label htmlFor="buyer-email">Your email</label>
         <input
           id="buyer-email"
+          name="email"
           data-testid="buyer-email"
           className="input"
           type="email"
+          autoComplete="email"
           value={fields.email}
           onChange={(event) => updateField("email", event.target.value)}
           placeholder="you@example.com"
@@ -148,6 +152,7 @@ export function MessageSeller({ listingId }: { listingId: string }) {
         <label htmlFor="buyer-message">Message</label>
         <textarea
           id="buyer-message"
+          name="message"
           data-testid="buyer-message"
           className="input textarea"
           rows={4}
