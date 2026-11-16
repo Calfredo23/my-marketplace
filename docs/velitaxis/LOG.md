@@ -34,3 +34,9 @@
 - Fixed the leather-jacket demo title to match its image, wrapped mobile category tabs, and
   kept a visible `Sell` label on mobile.
 - Added CI workflow. Next: public repo, Vercel, live verification, submit.
+
+## 2026-11-16 — Public repo and CI
+
+- Initialized git, ran the staged secret sweep (clean), committed, and created
+  `https://github.com/Calfredo23/my-marketplace`.
+- CI run `43833011349` passed both jobs. Next: Vercel import, env names, live verification.

@@ -36,8 +36,9 @@ detail page. Full contract in `docs/velitaxis/SPECS/DESIGN_PLAN.md`.
 The app is implemented and verified locally against the live Supabase project. Typecheck,
 lint, build, 16 unit tests, and 6 Playwright tests pass. The tests cover create listing with
 photo, home browse/search/category tabs, detail page, real Message Seller insert, axe at
-390/1440, responsive widths, console errors, and screenshots. The public deployment and repo
-are the remaining steps. Screenshots are in `submission/screenshots/` (PNGs ignored by git).
+390/1440, responsive widths, console errors, and screenshots. The public repo is `https://github.com/Calfredo23/my-marketplace`; CI run `43833011349`
+passed. The public Vercel deployment is the remaining step. Screenshots are in
+`submission/screenshots/` (PNGs ignored by git).
 
 Supabase project `Marketplace` (`nzmhpfiyhjmxqntrbosq`, Singapore, $0) has 6 demo listings,
 0 messages, and a public `listing-images` bucket. Security advisors show no findings. The old

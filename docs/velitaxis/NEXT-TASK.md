@@ -15,14 +15,15 @@ satisfies Test 3 on a public Vercel URL.
 
 ## Status
 
-Local implementation, Supabase project, real flow, tests, and screenshots are complete.
-The public repo and Vercel deployment remain.
+Local implementation, Supabase project, real flow, tests, screenshots, public repo, and CI
+are complete. The Vercel deployment remains.
 
 ## Next action
 
-1. Initialize git, commit, and create the public `Calfredo23/my-marketplace` repo.
-2. Import to Vercel, add the Supabase URL/publishable key env names, deploy.
-3. Verify the live create → browse → detail → message flow, update the live URL, submit.
+1. Import `Calfredo23/my-marketplace` to Vercel and add the Supabase URL/publishable key
+   env names.
+2. Deploy, verify the live create → browse → detail → message flow, update the live URL,
+   submit.
 
 ## Acceptance criteria
 
