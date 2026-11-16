@@ -8,11 +8,11 @@ import type { Listing } from "@/lib/listings";
 
 export function ListingsView({
   listings,
-  resetHref,
+  onReset,
   filtered,
 }: {
   listings: readonly Listing[];
-  resetHref: string;
+  onReset: () => void;
   filtered: boolean;
 }) {
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -30,9 +30,13 @@ export function ListingsView({
         </p>
         <div className="empty-actions">
           {filtered ? (
-            <Link className="button button-secondary" href={resetHref}>
+            <button
+              type="button"
+              className="button button-secondary"
+              onClick={onReset}
+            >
               Clear filters
-            </Link>
+            </button>
           ) : null}
           <Link className="button button-primary" href="/sell">
             Sell something

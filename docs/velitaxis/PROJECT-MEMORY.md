@@ -35,10 +35,12 @@ panel. Full contract in `docs/velitaxis/SPECS/DESIGN_PLAN.md`.
 ## Current state
 
 The frontend has been refactored on the Airbnb-inspired system: borderless photo cards,
-coral primary actions, one-family type, category tabs with icons, a one-column sell form,
-on-blur field validation, detail facts, sticky seller panel, reduced-motion support, and
-responsive category wrapping. Typecheck, lint, build, 16 unit tests, and all 6 Playwright
-tests pass. axe passes at 390 and 1440; no horizontal scroll at 360, 768, 1440.
+coral primary actions, a serif wordmark, a full-width search grid, client-side search and
+category filtering, three balanced photo columns, a one-column sell form, on-blur field
+validation, detail facts, sticky seller panel, reduced-motion support, and responsive
+category wrapping. Search, category changes, and clearing the search no longer make a
+document request. Typecheck, lint, build, 16 unit tests, and all 7 Playwright tests pass.
+axe passes at 390 and 1440; no horizontal scroll at 320, 360, 768, 1440.
 
 Seller email is implemented server-side through EmailJS in `app/api/notify-seller/route.ts`.
 The message saves first; email is best-effort. The route only emails the seller address

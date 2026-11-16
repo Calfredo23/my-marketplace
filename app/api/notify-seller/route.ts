@@ -77,6 +77,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Listing not found." }, { status: 404 });
   }
 
+  if (
+    listing.email.endsWith(".test") ||
+    listing.email.endsWith("@example.com")
+  ) {
+    return NextResponse.json({ sent: false, reason: "test_recipient" });
+  }
+
   const origin = new URL(request.url).origin;
   const templateParams = {
     to_email: listing.email,

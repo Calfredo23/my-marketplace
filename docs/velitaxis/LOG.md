@@ -89,3 +89,16 @@
   messages.
 - All Test 3 core features and both bonuses (keyword search, real seller email) are done.
   Next: final screenshots and submission.
+
+## 2026-11-16 — Interaction speed, navbar, and brand pass
+
+- Moved search and category filtering to the client. Search, category changes, and clearing
+  now update instantly with `history.replaceState`; no document request. Added a no-reload
+  Playwright test.
+- Rebuilt the header as a three-column grid, so search fills the old empty space.
+- Replaced the tag icon with a serif wordmark and a small `buy / sell` tagline.
+- Changed the desktop grid to three balanced columns.
+- Added clear-search behavior that resets category and shows all products; added a
+  `Clear filters` action.
+- Fixed ESLint scanning generated Playwright reports. 16 unit and 7 Playwright pass; axe at
+  390/1440; no overflow at 320/360/768/1440. Next: push, live verify, final screenshots.

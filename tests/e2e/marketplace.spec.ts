@@ -11,7 +11,7 @@ async function requireSupabase(page: Page) {
 
 test("the marketplace renders its shell", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("link", { name: "The Market home" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /the market/i })).toBeVisible();
   await expect(page.getByTestId("search-input")).toBeVisible();
   await expect(
     page.getByRole("link", { name: /sell something/i }).first(),
@@ -42,7 +42,7 @@ test("the opening page has no console errors", async ({ page }) => {
   page.on("pageerror", (error) => errors.push(String(error)));
 
   await page.goto("/");
-  await expect(page.getByRole("link", { name: "The Market home" })).toBeVisible();
+  await expect(page.getByRole("link", { name: /the market/i })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -58,6 +58,33 @@ test("layouts fit 360, 768 and 1440 without horizontal scroll", async ({
     }));
     expect(report.scrollWidth).toBeLessThanOrEqual(report.innerWidth + 1);
   }
+});
+
+test("search and category filters update without a page reload", async ({
+  page,
+}) => {
+  let documentRequests = 0;
+  page.on("request", (request) => {
+    if (request.resourceType() === "document") {
+      documentRequests += 1;
+    }
+  });
+
+  await requireSupabase(page);
+  const afterLoad = documentRequests;
+
+  await page.getByTestId("search-input").fill("sofa");
+  await expect(page.getByTestId("listing-count")).toHaveText("1 listing");
+  await expect(page).toHaveURL(/q=sofa/);
+
+  await page.getByRole("button", { name: "Furniture" }).click();
+  await expect(page.getByTestId("listing-count")).toHaveText("1 listing");
+  await page.getByTestId("clear-search").click();
+  await expect(page.getByTestId("listing-count")).toHaveText("6 listings");
+
+  await page.getByRole("button", { name: "All" }).click();
+  await expect(page.getByTestId("listing-count")).toHaveText("6 listings");
+  expect(documentRequests).toBe(afterLoad);
 });
 
 test.describe("Supabase flow", () => {

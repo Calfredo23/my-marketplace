@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import {
   BooksIcon,
   ClothingIcon,
@@ -8,7 +9,7 @@ import {
   OtherIcon,
   SportsIcon,
 } from "@/components/icons";
-import { browseHref, CATEGORIES, type Category } from "@/lib/listings";
+import { CATEGORIES, type Category } from "@/lib/listings";
 
 function CategoryIcon({ category }: { category: Category | null }) {
   switch (category) {
@@ -31,35 +32,37 @@ function CategoryIcon({ category }: { category: Category | null }) {
 
 export function CategoryTabs({
   active,
-  query,
+  onSelect,
 }: {
   active: Category | null;
-  query: string;
+  onSelect: (category: Category | null) => void;
 }) {
   return (
     <nav className="category-tabs" aria-label="Listing categories">
-      <Link
-        href={browseHref(null, query)}
+      <button
+        type="button"
         className={active ? "category-tab" : "category-tab category-tab-active"}
-        aria-current={active ? undefined : "page"}
+        aria-pressed={!active}
+        onClick={() => onSelect(null)}
       >
         <CategoryIcon category={null} />
         All
-      </Link>
+      </button>
       {CATEGORIES.map((category) => {
         const isActive = active === category;
         return (
-          <Link
+          <button
             key={category}
-            href={browseHref(category, query)}
+            type="button"
             className={
               isActive ? "category-tab category-tab-active" : "category-tab"
             }
-            aria-current={isActive ? "page" : undefined}
+            aria-pressed={isActive}
+            onClick={() => onSelect(category)}
           >
             <CategoryIcon category={category} />
             {category}
-          </Link>
+          </button>
         );
       })}
     </nav>

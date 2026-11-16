@@ -3,8 +3,10 @@
 ## Tests
 
 - Vitest: 16 passing (listing validation, message validation, parsing, formatting, errors).
-- Playwright: 6 passing with Supabase (shell, axe at 390/1440, console, responsive,
-  create listing, detail, message, screenshots).
+- Playwright: 7 passing with Supabase (shell, axe at 390/1440, console, responsive,
+  create listing, detail, message, screenshots, and client-side filter/no-document-request).
+- Client filtering: search and category changes make no document request; clearing search
+  resets the category and shows all products.
 - Visual review: Airbnb-inspired home/detail/sell at 1440 and 390. Temporary captures in
   `.review/`; submission screenshots intentionally not replaced yet.
 - Live design check: `https://my-marketplace-calfredo.vercel.app` — 6 listings, canonical,
