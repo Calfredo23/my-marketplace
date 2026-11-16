@@ -15,13 +15,12 @@ satisfies Test 3 on a public Vercel URL.
 
 ## Status
 
-The Airbnb-inspired frontend refactor is live and verified. Public deployment:
-`https://my-marketplace-calfredo.vercel.app`. Submission screenshots were not replaced.
+Everything is complete: live site, EmailJS, instant filters, tests, CI, and six final
+screenshots in `submission/screenshots/`.
 
 ## Next action
 
-1. Capture the final submission screenshots.
-2. Submit at `apply.capm.us`.
+Submit at `https://apply.capm.us` with the live URL, repo, and screenshots.
 
 ## Acceptance criteria
 

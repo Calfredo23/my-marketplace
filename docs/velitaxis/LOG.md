@@ -102,3 +102,10 @@
   `Clear filters` action.
 - Fixed ESLint scanning generated Playwright reports. 16 unit and 7 Playwright pass; axe at
   390/1440; no overflow at 320/360/768/1440. Next: push, live verify, final screenshots.
+
+## 2026-11-16 — Final live screenshots
+
+- Captured six final screenshots from the live site: home, detail, and sell at 1440 and 390.
+- Verified live: instant search/category/clear with the page marker still alive, 6 demo
+  listings, correct canonical, and no console errors.
+- Ready to submit at `apply.capm.us`.

@@ -48,11 +48,11 @@ stored on the listing. Local EmailJS test returned `{"sent":true}`; the live Ver
 also returned `{"sent":true}` after the env vars were added. Live email delivery is
 confirmed.
 
-Submission screenshots were not overwritten. Temporary review captures are in `.review/`
-(ignored). The public deployment is `https://my-marketplace-calfredo.vercel.app`; the
-refactor is live and verified there with 6 listings, the detail page, the message form, the
-sell form, correct canonical URL, and zero console errors. Next: owner review, final
-screenshots, submission.
+Submission screenshots were replaced with six live captures: home, detail, and sell at 1440
+and 390. The public deployment is `https://my-marketplace-calfredo.vercel.app`; the refactor
+is live and verified there with 6 listings, instant client-side filters, the detail page, the
+message form, the sell form, working EmailJS delivery, correct canonical URL, and zero console
+errors. The project is ready to submit.
 
 ## Risks
 
