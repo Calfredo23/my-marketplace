@@ -42,7 +42,9 @@ tests pass. axe passes at 390 and 1440; no horizontal scroll at 360, 768, 1440.
 
 Submission screenshots were not overwritten. Temporary review captures are in `.review/`
 (ignored). The public deployment is `https://my-marketplace-calfredo.vercel.app`; the
-refactor still needs a live verification and final submission screenshots.
+refactor is live and verified there with 6 listings, the detail page, the message form, the
+sell form, correct canonical URL, and zero console errors. Next: owner review, final
+screenshots, submission.
 
 ## Risks
 

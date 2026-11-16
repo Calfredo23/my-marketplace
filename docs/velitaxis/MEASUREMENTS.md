@@ -7,6 +7,8 @@
   create listing, detail, message, screenshots).
 - Visual review: Airbnb-inspired home/detail/sell at 1440 and 390. Temporary captures in
   `.review/`; submission screenshots intentionally not replaced yet.
+- Live design check: `https://my-marketplace-calfredo.vercel.app` — 6 listings, canonical,
+  category tabs, detail, message form, sell form, no overflow at 390, 0 console errors.
 - axe: 0 violations at 390 and 1440.
 - Responsive: no horizontal scroll at 360, 768, 1440.
 - Form UX: one-column sell form, 48px inputs, 16px text, visible labels, on-blur validation.

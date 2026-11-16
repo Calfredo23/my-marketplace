@@ -58,3 +58,12 @@
   GitHub deployment status. The old fallback `the-market-calfredo.vercel.app` returns 404.
 - Updated the metadata fallback, README, and project state. Next: push, verify live, then
   final screenshots after approval.
+
+## 2026-11-16 — Refactor deployed and verified
+
+- Pushed `5038163`. Vercel deployment completed for `my-marketplace-calfredo`.
+- Live check: 200, canonical `https://my-marketplace-calfredo.vercel.app`, 6 listings,
+  category tabs, detail page, message form, sell form, no horizontal overflow at 390, zero
+  console errors.
+- Submission screenshots intentionally untouched. Next: owner review, final screenshots,
+  submit.
