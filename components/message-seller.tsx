@@ -20,6 +20,9 @@ export function MessageSeller({ listingId }: { listingId: string }) {
   const [errors, setErrors] = useState<MessageErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<
+    "sent" | "not_configured" | "failed" | null
+  >(null);
 
   function updateField(key: keyof typeof initialFields, value: string) {
     setFields((current) => ({ ...current, [key]: value }));
@@ -55,6 +58,32 @@ export function MessageSeller({ listingId }: { listingId: string }) {
       return;
     }
 
+    let nextEmailStatus: "sent" | "not_configured" | "failed" = "failed";
+    try {
+      const response = await fetch("/api/notify-seller", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          listingId,
+          buyerName: normalizeText(fields.name),
+          buyerEmail: fields.email.trim(),
+          body: normalizeText(fields.body),
+        }),
+      });
+      const result = (await response.json()) as {
+        sent?: boolean;
+        reason?: string;
+      };
+      if (result.sent) {
+        nextEmailStatus = "sent";
+      } else if (result.reason === "not_configured") {
+        nextEmailStatus = "not_configured";
+      }
+    } catch {
+      nextEmailStatus = "failed";
+    }
+
+    setEmailStatus(nextEmailStatus);
     setSubmitting(false);
     setSent(true);
   }
@@ -64,9 +93,18 @@ export function MessageSeller({ listingId }: { listingId: string }) {
       <div className="message-success" role="status" data-testid="message-sent">
         <CheckIcon />
         <div>
-          <p className="message-success-title">Message sent</p>
-          <p className="message-success-copy">
-            The seller can reply to the email you left.
+          <p className="message-success-title">
+            {emailStatus === "sent" ? "Message sent" : "Message saved"}
+          </p>
+          <p
+            className="message-success-copy"
+            data-testid="message-email-status"
+          >
+            {emailStatus === "sent"
+              ? "The seller was emailed and can reply directly."
+              : emailStatus === "not_configured"
+                ? "The seller can reply to your email. Email notifications are not configured yet."
+                : "The seller can reply to your email. The email notification failed, but your message is saved."}
           </p>
         </div>
       </div>

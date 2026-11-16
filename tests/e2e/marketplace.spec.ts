@@ -95,6 +95,7 @@ test.describe("Supabase flow", () => {
     await page.getByTestId("buyer-message").fill("Is this still available?");
     await page.getByTestId("send-message").click();
     await expect(page.getByTestId("message-sent")).toBeVisible();
+    await expect(page.getByTestId("message-email-status")).toBeVisible();
 
     await page.goto(`/?q=${encodeURIComponent(title)}`);
     await expect(page.getByTestId("listing-title").first()).toHaveText(title);

@@ -67,3 +67,15 @@
   console errors.
 - Submission screenshots intentionally untouched. Next: owner review, final screenshots,
   submit.
+
+## 2026-11-16 — EmailJS seller notifications
+
+- Added `app/api/notify-seller/route.ts` with server-side EmailJS REST sending. The route
+  looks up the seller email from the listing, validates the message, and never exposes the
+  EmailJS private key to the browser.
+- `MessageSeller` now saves first, then calls the route. The success state distinguishes
+  email sent, not configured, and failed.
+- Added the four EmailJS env names to `.env.example` and setup instructions to README.
+  Added a Playwright assertion for the email status line.
+- Verified with EmailJS unset: 16 unit and 6 Playwright pass; message still saves and the UI
+  says notifications are not configured. Next: owner EmailJS setup + live email test.

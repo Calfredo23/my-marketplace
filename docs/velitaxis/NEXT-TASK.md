@@ -20,8 +20,8 @@ The Airbnb-inspired frontend refactor is live and verified. Public deployment:
 
 ## Next action
 
-1. Owner reviews the live look.
-2. Capture the final submission screenshots.
+1. Owner creates the EmailJS service/template and adds the four EmailJS env names to Vercel.
+2. Verify a real seller email on the live site, then capture final screenshots.
 3. Submit at `apply.capm.us`.
 
 ## Acceptance criteria

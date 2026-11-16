@@ -40,6 +40,11 @@ on-blur field validation, detail facts, sticky seller panel, reduced-motion supp
 responsive category wrapping. Typecheck, lint, build, 16 unit tests, and all 6 Playwright
 tests pass. axe passes at 390 and 1440; no horizontal scroll at 360, 768, 1440.
 
+Seller email is implemented server-side through EmailJS in `app/api/notify-seller/route.ts`.
+The message saves first; email is best-effort. Until the four EmailJS env names exist, the
+route returns `not_configured` and the UI confirms the message was saved. The route only
+emails the seller address stored on the listing.
+
 Submission screenshots were not overwritten. Temporary review captures are in `.review/`
 (ignored). The public deployment is `https://my-marketplace-calfredo.vercel.app`; the
 refactor is live and verified there with 6 listings, the detail page, the message form, the

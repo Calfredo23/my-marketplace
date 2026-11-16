@@ -13,7 +13,7 @@ List something with a photo and details, browse by category, open a listing, and
 - Create a listing with a photo, title, description, price, email, and category.
 - Browse every listing, filter by category, search titles and descriptions, and switch between grid and list view.
 - Open a listing to see the photo, full details, seller email, and a working **Message Seller** form.
-- Messages save to Supabase. Sending a real email is not included.
+- Messages save to Supabase. Optional EmailJS notifications send the seller an email.
 
 ## Supabase setup
 
@@ -32,6 +32,32 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 6. Restart `npm run dev`.
 
 Do not commit keys. Use the same names in Vercel.
+
+## Seller email notifications
+
+Messages always save first. Email is an optional best-effort step through EmailJS.
+
+1. Create an EmailJS account and connect the Gmail account that should send the mail.
+2. In **Account → Security**, enable non-browser API calls and create the private key.
+3. Create a template with:
+   - **To Email:** `{{to_email}}`
+   - **Reply-To:** `{{reply_to}}`
+   - **From Name:** `{{from_name}}`
+   - **Subject:** `New message about {{listing_title}}`
+   - **Body:** use `{{buyer_name}}`, `{{buyer_email}}`, `{{listing_title}}`,
+     `{{listing_url}}`, and `{{buyer_message}}`.
+4. Add the service ID, template ID, public key, and private key to `.env.local` and Vercel:
+
+```bash
+EMAILJS_SERVICE_ID=
+EMAILJS_TEMPLATE_ID=
+EMAILJS_PUBLIC_KEY=
+EMAILJS_PRIVATE_KEY=
+```
+
+If these are missing, the app skips email and still confirms the message was saved. The demo
+listings use a non-deliverable `@themarket.test` seller address, so test email with a listing
+you create using a real inbox.
 
 ## Scripts
 
@@ -54,7 +80,8 @@ Playwright uses port 3213. The Supabase flow is skipped when the environment var
 - `components/listings-view.tsx` owns the grid/list toggle.
 - `components/sell-form.tsx` uploads the photo, then inserts the listing.
 - `app/listing/[id]/page.tsx` renders a listing and the message form.
-- `components/message-seller.tsx` inserts the buyer message.
+- `components/message-seller.tsx` inserts the buyer message, then calls the seller email route.
+- `app/api/notify-seller/route.ts` sends the optional EmailJS notification.
 - `lib/listings.ts` holds categories, validation, parsing, and formatting.
 - `lib/images.ts` holds photo type and size rules.
 - `supabase/schema.sql` creates `listings` and `messages`.
